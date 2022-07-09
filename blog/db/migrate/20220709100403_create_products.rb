@@ -38,6 +38,9 @@ end
 
 
 ###############################################################################
+# IMPORTANT NOTE: If we alter the data_table name in migration file: we have to declare "self.table_name='{altered_table_name}'" in Model class file.
+
+
 # SOME RAILS COMMABND FOR DB MIGRATION:
 #
 # rails db:migrate
