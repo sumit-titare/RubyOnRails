@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_05_175507) do
+ActiveRecord::Schema.define(version: 2022_07_09_110525) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ecommerce_products", force: :cascade do |t|
+    t.string "product_name", limit: 50
+    t.string "product_description"
+    t.float "product_price", default: 0.0, null: false
+    t.boolean "product_status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "product_merchant", limit: 50
+    t.index ["product_name"], name: "index_ecommerce_products_on_product_name"
   end
 
 end
