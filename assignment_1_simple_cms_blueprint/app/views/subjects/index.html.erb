@@ -1,0 +1,20 @@
+<h1>Subjects list:</h1>
+
+<table>
+  <tr>
+    <th>Sr No.</th>
+    <th>Subject Name</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Actions</th>
+  </tr>
+  <% @subjects.each do |subject| %>
+  <tr>
+    <td><%=subject.id %></td>
+    <td><%=subject.name %></td>
+    <td><%=subject.position %></td>
+    <td><%=subject.visible ? "Yes" : "No"  %></td>
+    <td><%= link_to('Show', subject_path(subject)) %></td> <!-- By default, RAILS send id even if we provide Object -->
+  </tr>
+    <% end %>
+</table>
