@@ -5,7 +5,7 @@ class Subject < ApplicationRecord
 #ONE TO MANY:
   has_many :pages
 
-  scope :visible, lambda { where(visible: true) }
+  # scope :visible, lambda { where(visible: true) }
   scope :invisible, lambda { where(visible: false) }
   scope :search, lambda { |query| where(["name LIKE ?", "%#{query}%"]) }
   scope :highest_position, lambda { order("position DESC").limit(1) }

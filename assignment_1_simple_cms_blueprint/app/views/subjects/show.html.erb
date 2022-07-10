@@ -1,0 +1,15 @@
+<h1>Subject Details:</h1>
+
+<div class="subject">
+<ul class="show">
+<li>Id : <%= @subject.id %></li>
+<li>Name : <%= @subject.name %></li>
+<li>Position : <%= @subject.position %></li>
+<li>Visible : <%= @subject.visible ? "Yes": "No" %></li>
+</ul>
+</div>
+<table>
+  <tr>
+    <td><%= link_to('Back to Subjects',subjects_path) %></td>
+  </tr>
+</table>
