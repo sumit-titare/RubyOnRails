@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_09_150201) do
+ActiveRecord::Schema.define(version: 2022_07_10_113948) do
+
+  create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "admin_users_pages", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "page_id"
+    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id"
+  end
 
   create_table "pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|
     t.integer "subject_id"
@@ -22,6 +36,15 @@ ActiveRecord::Schema.define(version: 2022_07_09_150201) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["permalink"], name: "index_pages_on_permalink"
     t.index ["subject_id"], name: "index_pages_on_subject_id"
+  end
+
+  create_table "section_edits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "section_id"
+    t.string "summary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_user_id", "section_id"], name: "index_section_edits_on_admin_user_id_and_section_id"
   end
 
   create_table "sections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|

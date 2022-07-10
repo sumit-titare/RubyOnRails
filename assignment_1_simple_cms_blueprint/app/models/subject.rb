@@ -1,4 +1,9 @@
 class Subject < ApplicationRecord
+# #ONE TO ONE:
+#   has_one :page
+
+#ONE TO MANY:
+  has_many :pages
 
   scope :visible, lambda { where(visible: true) }
   scope :invisible, lambda { where(visible: false) }
