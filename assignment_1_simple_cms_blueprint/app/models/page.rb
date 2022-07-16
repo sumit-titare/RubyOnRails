@@ -8,4 +8,11 @@ class Page < ApplicationRecord
 
   #MANY TO MANY:(Simple)
   has_and_belongs_to_many :admin_users
+
+  scope :sorted , lambda { order('id ASC') }
+  # scope :search_subject, -> (subject_id) do
+  #   Subject.search_subject_by_id(subject_id)
+  # end
+  scope :invisible, lambda { where(visible:false) }
+
 end

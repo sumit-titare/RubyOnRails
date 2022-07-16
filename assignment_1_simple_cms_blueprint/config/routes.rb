@@ -8,5 +8,13 @@ Rails.application.routes.draw do
   root 'subjects#index'
 
   resources :subjects
+
+#By default delete route is not included , to include it we have to do this
+  resources :pages do
+    member do
+      get :delete
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

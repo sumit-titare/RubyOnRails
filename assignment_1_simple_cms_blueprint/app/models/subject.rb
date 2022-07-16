@@ -11,4 +11,5 @@ class Subject < ApplicationRecord
   scope :highest_position, lambda { order("position DESC").limit(1) }
   scope :sorted, lambda { order('position ASC')}
   scope :newest_first, lambda { order('created_at DESC') }
+  # scope :search_subject_by_id, lambda { |subject_id| where(["id = ?"],subject_id) }
 end
