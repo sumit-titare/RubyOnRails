@@ -1,0 +1,34 @@
+<br/>
+<div class="flash-container">
+  <%= flash[:message] if !flash[:message].blank? %>
+</div>
+<div class="action new">
+  <%= link_to("Create New Page",new_page_path) %>
+</div>
+<h1>All Pages</h1>
+<br/>
+
+<table>
+  <tr>
+    <th>Sr No.</th>
+    <th>Subject id</th>
+    <th>Page Name</th>
+    <th>Permalink</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Actions</th>
+  </tr>
+  <% @pages.each do |page| %>
+  <tr>
+    <td><%=page.id %></td>
+    <td><%= link_to(page.subject_id, subject_path(page.subject_id)) %></td>
+    <td><%=page.name %></td>
+    <td><%=page.permalink %></td>
+    <td><%=page.position %></td>
+    <td><%=page.visible ? "Yes" : "No"  %></td>
+    <td><%= link_to('Show', page_path(page)) %></td>
+    <td><%= link_to('Edit', edit_page_path(page)) %></td>
+    <td><%= link_to('Delete', delete_page_path(page)) %></td>
+  </tr>
+    <% end %>
+</table>
