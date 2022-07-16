@@ -1,0 +1,45 @@
+<!-- NAV BAR: -->
+<ul>
+  <li><%= link_to("Subjects", subjects_path) %></li>
+  <li><%= link_to("Pages", pages_path) %></li>
+  <li><%= link_to("Sections", sections_path) %></li>
+</ul>
+<!-- NAV BAR: -->
+<br/>
+<div class="flash-container">
+  <%= flash[:message] if !flash[:message].blank? %>
+</div>
+
+<h1>Sections List:</h1>
+<br/>
+
+<table>
+  <tr>
+    <th>Sr No.</th>
+    <th>Page id</th>
+    <th>Section Name</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Content Type</th>
+    <th>Content</th>
+    <th>Actions</th>
+  </tr>
+  <% @sections.each do |section| %>
+  <tr>
+    <td><%=section.id %></td>
+    <td><%= link_to(section.page_id, page_path(section.page_id)) %></td>
+    <td><%=section.name %></td>
+    <td><%=section.position %></td>
+    <td><%=section.visible ? "Yes" : "No"  %></td>
+    <td><%=section.content_type %></td>
+    <td><%=section.content %></td>
+    <td><%= link_to('Show', section_path(section)) %></td>
+    <td><%= link_to('Edit', edit_section_path(section)) %></td>
+    <td><%= link_to('Delete', delete_section_path(section)) %></td>
+  </tr>
+    <% end %>
+</table>
+<br/>
+<div class="action new">
+  <%= link_to("Create New Section",new_section_path) %>
+</div>

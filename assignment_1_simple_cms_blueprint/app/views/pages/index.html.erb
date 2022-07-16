@@ -1,10 +1,15 @@
+<!-- NAV BAR: -->
+<ul>
+  <li><%= link_to("Subjects", subjects_path) %></li>
+  <li><%= link_to("Pages", pages_path) %></li>
+  <li><%= link_to("Sections", sections_path) %></li>
+</ul>
+<!-- NAV BAR: -->
 <br/>
 <div class="flash-container">
   <%= flash[:message] if !flash[:message].blank? %>
 </div>
-<div class="action new">
-  <%= link_to("Create New Page",new_page_path) %>
-</div>
+
 <h1>All Pages</h1>
 <br/>
 
@@ -32,3 +37,7 @@
   </tr>
     <% end %>
 </table>
+<br/>
+<div class="action new">
+  <%= link_to("Create New Page",new_page_path) %>
+</div>
