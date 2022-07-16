@@ -1,4 +1,7 @@
 <br/>
+<div class="flash-container">
+  <%= flash[:message] if !flash[:message].blank? %>
+</div>
 <div class="action new">
   <%= link_to("Create New Subject",new_subject_path) %>
 </div>
