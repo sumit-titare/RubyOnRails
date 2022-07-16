@@ -1,2 +1,22 @@
-<h1>Subjects#edit</h1>
-<p>Find me in app/views/subjects/edit.html.erb</p>
+<h1>Subjects edit page</h1>
+
+<%= form_for(@subject) do |f| %>
+<table>
+  <tr>
+    <th>Subject Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Position</th>
+    <td><%= f.text_field(:position) %></td>
+  </tr>
+  <tr>
+    <th>Visible</th>
+    <td><%= f.text_field(:visible) %></td>
+  </tr>
+</table>
+<div class="action edit"><%= f.submit("Update Subject") %></div>
+<% end %>
+<div class="action index">
+<%= link_to("Back to subjects", subjects_path) %>
+</div>
