@@ -54,6 +54,15 @@ class SubjectsController < ApplicationController
   def delete
   end
 
+  def destroy
+    @subject = Subject.find(params[:id])
+    if @subject.destroy
+      redirect_to(subjects_path)
+    else
+      render('index')
+    end
+  end
+
   #STRONG params
   def subject_params
     params.require(:subject).permit(:name, :position, :visible)
