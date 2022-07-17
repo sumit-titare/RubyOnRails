@@ -1,2 +1,7 @@
-<h1>Subjects#delete</h1>
-<p>Find me in app/views/subjects/delete.html.erb</p>
+<div class="delete-confirmation">
+  <h2>Delete confirmation:</h2>
+  <%= form_for(@subject, method:"delete") do |f|%>
+  <p> Are you sure you want to delete? </p>
+  <div> <%= f.submit("Delete Subject") %> </div>
+  <% end %>
+</div>

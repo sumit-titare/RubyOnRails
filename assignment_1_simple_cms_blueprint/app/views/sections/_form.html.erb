@@ -5,22 +5,22 @@
   </tr>
   <tr>
     <th>Page Id</th>
-    <td><%= f.text_field(:page_id) %></td>
+    <td><%= f.select(:page_id, @pages_lookup) %></td>
   </tr>
   <tr>
     <th>Position</th>
-    <td><%= f.text_field(:position) %></td>
+    <td><%= f.select(:position, 1..@sections_count) %></td>
   </tr>
   <tr>
     <th>Visible</th>
-    <td><%= f.text_field(:visible) %></td>
+    <td><%= f.check_box(:visible) %></td>
   </tr>
   <tr>
     <th>Content Type</th>
-    <td><%= f.text_field(:content_type) %></td>
+    <td><%= f.select(:content_type, ["Mythology", "Science", "History", "Architecture", "Science","Mathematics"]) %></td>
   </tr>
   <tr>
     <th>Content</th>
-    <td><%= f.text_field(:content) %></td>
+    <td><%= f.text_area(:content, size:"50x10") %></td>
   </tr>
 </table>
