@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
 
+  layout('navbar')
 
   def index
   @subjects = Subject.sorted
@@ -59,7 +60,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     if @subject.destroy
-      flash[:message] = "#{@subject.name} destroyed successfully!!" 
+      flash[:message] = "#{@subject.name} destroyed successfully!!"
       redirect_to(subjects_path)
     else
       render('index')

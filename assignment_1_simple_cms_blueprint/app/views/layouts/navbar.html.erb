@@ -1,0 +1,29 @@
+<!--NOTE:  Any instance variable from controller or view is accessible here in layout. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <!-- Adding application.css file as stylesheet-->
+  <%= stylesheet_link_tag "application" %>
+</head>
+<body>
+  <!-- NAV BAR: -->
+  <ul>
+    <li><%= link_to("Subjects", subjects_path) %></li>
+    <li><%= link_to("Pages", pages_path) %></li>
+    <li><%= link_to("Sections", sections_path) %></li>
+  </ul>
+  <!-- NAV BAR: -->
+
+  <br/>
+  <div class="flash-container">
+    <%= flash[:message] if !flash[:message].blank? %>
+  </div>
+
+   <!-- before yield -->
+ <%= yield %>
+  <!-- after yield %> -->
+
+</body>
+</html>

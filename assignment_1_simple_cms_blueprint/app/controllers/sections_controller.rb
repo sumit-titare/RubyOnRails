@@ -1,4 +1,7 @@
 class SectionsController < ApplicationController
+
+  layout('navbar')
+
   def index
     @sections = Section.sorted
   end
