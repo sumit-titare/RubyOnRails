@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  layout 'navbar'
+
   def index
     @pages = Page.sorted
   end
