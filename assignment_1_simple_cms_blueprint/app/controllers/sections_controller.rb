@@ -8,6 +8,8 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new(visible: false)
+    @sections_count = Section.count + 1
+    @pages_lookup = Page.all.map { |p| [p.name, p.id]}
   end
 
   def create
@@ -16,6 +18,8 @@ class SectionsController < ApplicationController
       flash[:message] = "Section created successfully!!"
       redirect_to(sections_path)
     else
+      @sections_count = Section.count + 1
+      @pages_lookup = Page.all.map { |p| [p.name, p.id]}
       render('new')
     end
   end
@@ -26,6 +30,8 @@ class SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
+    @sections_count = Section.count
+    @pages_lookup = Page.all.map { |p| [p.name, p.id]}
   end
 
   def update
@@ -34,6 +40,8 @@ class SectionsController < ApplicationController
       flash[:message] = "Section updated successfully!!"
       redirect_to(section_path(@section))
     else
+      @sections_count = Section.count
+      @pages_lookup = Page.all.map { |p| [p.name, p.id]}
       render('edit')
     end
   end
@@ -54,6 +62,12 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:name, :page_id, :position, :visible, :content_type, :content)
+    params.require(:section).permit(
+      :name,
+      :page_id,
+      :position,
+      :visible,
+      :content_type,
+      :content)
   end
 end

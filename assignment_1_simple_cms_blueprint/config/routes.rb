@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   root 'subjects#index'
 
-  resources :subjects
+  resources :subjects do
+    member do
+      get :delete
+    end
+  end
 
 #By default delete route is not included , to include it we have to do this
   resources :pages do

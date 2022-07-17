@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new(name: "default name") #In new() method we can define the default values for fields
+    @subjects_count = Subject.count + 1
   end
 
   def create
@@ -32,12 +33,14 @@ class SubjectsController < ApplicationController
       redirect_to(subjects_path)
     else
       # If save fails, redisplay the form so user can fix problems
+      @subjects_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subjects_count = Subject.count
   end
 
   def update
@@ -50,11 +53,13 @@ class SubjectsController < ApplicationController
       redirect_to(subject_path(@subject))
     else
       # If save fails, redisplay the form so user can fix problems
+      @subjects_count = Subject.count
       render('edit')
     end
   end
 
   def delete
+    @subject = Subject.find(params[:id])
   end
 
   def destroy
@@ -69,7 +74,10 @@ class SubjectsController < ApplicationController
 
   #STRONG params
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(
+      :name,
+      :position,
+      :visible)
   end
 
 end

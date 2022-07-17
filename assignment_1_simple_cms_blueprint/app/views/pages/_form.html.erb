@@ -6,11 +6,11 @@
   </tr>
   <tr>
     <th>Subject Id</th>
-    <td><%= f.text_field(:subject_id) %></td>
+    <td><%= f.select(:subject_id, @subjects_lookup) %></td>
   </tr>
   <tr>
     <th>Position</th>
-    <td><%= f.text_field(:position) %></td>
+    <td><%= f.select(:position, 1..@pages_count) %></td>
   </tr>
   <tr>
     <th>Permalink</th>
@@ -18,6 +18,6 @@
   </tr>
   <tr>
     <th>Visible</th>
-    <td><%= f.text_field(:visible) %></td>
+    <td><%= f.check_box(:visible) %></td>
   </tr>
 </table>
