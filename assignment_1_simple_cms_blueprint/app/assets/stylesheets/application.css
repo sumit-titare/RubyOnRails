@@ -36,3 +36,15 @@
  li a:hover {
    background-color: #111;
  }
+
+.error_modal_header {
+  background-color: #E21717;
+  text-align: center;
+  width: 50%
+}
+
+.error_modal {
+  background-color: #1111;
+  text-align: center;
+  width: 50%
+}

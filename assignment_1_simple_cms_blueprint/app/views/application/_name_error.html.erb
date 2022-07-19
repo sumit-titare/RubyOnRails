@@ -1,0 +1,13 @@
+<% if object && object.errors.size > 0 %>
+<div class="error_modal_header">
+<h3> <%= pluralize(object.errors.size, "error") %> : prohibited from saving this object!! </h3>
+</div>
+<div class="error_modal">
+<p> There were follwing issues : </p>
+<table>
+  <%= object.errors.full_messages.each do |msg| %>
+  <tr> => <%= msg %> <= </tr><br/>
+  <% end %>
+</table>
+</div>
+<% end %>
