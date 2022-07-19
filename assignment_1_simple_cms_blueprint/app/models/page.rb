@@ -15,4 +15,13 @@ class Page < ApplicationRecord
   # end
   scope :invisible, lambda { where(visible:false) }
 
+  #validations
+  # use validates_presence_of with validates_length_of to disallow spaces, because validates_length_of considers blank_space as 1 character.
+  validates_presence_of :name
+  validates_length_of :name, maximum: 255
+
+  validates_presence_of :permalink
+  validates_length_of :permalink, within: 3..255
+  validates_uniqueness_of :permalink
+  # for unique values by subject use ":scope => :subject_id"
 end
