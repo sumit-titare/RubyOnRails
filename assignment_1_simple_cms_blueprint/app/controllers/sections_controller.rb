@@ -2,6 +2,8 @@ class SectionsController < ApplicationController
 
   layout('navbar')
 
+  before_action :confirm_logged_in
+
   def index
     @sections = Section.sorted
   end

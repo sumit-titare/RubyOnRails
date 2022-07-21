@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
   # get 'subjects/delete'
 
   root 'subjects#index'
+
+  get 'access/menu'
+  get 'access/login'
+  get 'access/logout'
+  post 'access/attempt_login'
 
   resources :subjects do
     member do

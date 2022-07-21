@@ -3,6 +3,7 @@ class SubjectsController < ApplicationController
   layout('navbar')
 
   before_action :set_subjects_count, only: [:new, :create, :edit, :update]
+  before_action :confirm_logged_in
 
   def index
   @subjects = Subject.sorted

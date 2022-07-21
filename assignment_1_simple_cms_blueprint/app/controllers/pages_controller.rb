@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   before_action :define_subjects_lookup, only: [:new, :create, :edit, :update ]
   before_action :set_page_count, only: [:new, :create, :edit, :update]
+  before_action :confirm_logged_in
 
   def index
     @pages = Page.sorted
