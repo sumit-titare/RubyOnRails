@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_10_113948) do
+ActiveRecord::Schema.define(version: 2022_07_21_144837) do
 
   create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_07_10_113948) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "admin_users_pages", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|

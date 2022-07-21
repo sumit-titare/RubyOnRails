@@ -1,4 +1,6 @@
 class AdminUser < ApplicationRecord
+  has_secure_password
+
 #MANY to MANY relation:(Simple)
   has_and_belongs_to_many :pages
 
