@@ -2,6 +2,8 @@ class SubjectsController < ApplicationController
 
   layout('navbar')
 
+  before_action :set_subjects_count, only: [:new, :create, :edit, :update]
+
   def index
   @subjects = Subject.sorted
   render 'index'
@@ -13,7 +15,6 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new(name: "default name") #In new() method we can define the default values for fields
-    @subjects_count = Subject.count + 1
   end
 
   def create
@@ -33,14 +34,12 @@ class SubjectsController < ApplicationController
       redirect_to(subjects_path)
     else
       # If save fails, redisplay the form so user can fix problems
-      @subjects_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
-    @subjects_count = Subject.count
   end
 
   def update
@@ -53,7 +52,6 @@ class SubjectsController < ApplicationController
       redirect_to(subject_path(@subject))
     else
       # If save fails, redisplay the form so user can fix problems
-      @subjects_count = Subject.count
       render('edit')
     end
   end
@@ -78,6 +76,16 @@ class SubjectsController < ApplicationController
       :name,
       :position,
       :visible)
+  end
+
+  #
+  private
+
+  def set_subjects_count
+    @subjects_count = Subject.count
+    if params[:action] == 'new' || params[:action] == 'create'
+      @subjects_count += 1
+    end
   end
 
 end
