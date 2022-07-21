@@ -22,6 +22,7 @@ class AccessController < ApplicationController
 
     if authenticated_user
         session[:user_id] = authenticated_user&.id
+        session[:username] = authenticated_user&.username
         flash[:message] = "Login successfull!!"
         redirect_to(access_menu_path)
     else
