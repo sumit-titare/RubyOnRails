@@ -18,7 +18,7 @@
    margin: 0;
    padding: 0;
    overflow: hidden;
-   background-color: #333;
+   background-color: #207398;
  }
 
  li {
@@ -34,17 +34,40 @@
  }
 
  li a:hover {
-   background-color: #111;
+   background-color: #CAD5E2;
  }
 
 .error_modal_header {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
   background-color: #E21717;
   text-align: center;
   width: 50%
 }
 
 .error_modal {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
   background-color: #1111;
   text-align: center;
   width: 50%
+}
+
+body {
+  height: 1000px; /* You must set a specified height */
+  width: 100%;
+  background-image: url(background.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.login-form {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    background-color: #51E1ED;
+    border-radius: 20%;
 }
