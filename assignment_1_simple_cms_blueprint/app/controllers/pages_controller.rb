@@ -2,6 +2,9 @@ class PagesController < ApplicationController
 
   layout 'navbar'
 
+  before_action :define_subjects_lookup, only: [:new, :create, :edit, :update ]
+  before_action :set_page_count, only: [:new, :create, :edit, :update]
+
   def index
     @pages = Page.sorted
   end
@@ -13,7 +16,6 @@ class PagesController < ApplicationController
   def new
     @page = Page.new()
     @pages_count = Page.count + 1
-    @subjects_lookup = Subject.sorted.map { |s| [s.name, s.id] }
   end
 
   def create
@@ -24,7 +26,6 @@ class PagesController < ApplicationController
     else
       # if it fails ,then template 'new' should have access to @pages_count, @subjects_lookup
       @pages_count = Page.count + 1
-      @subjects_lookup = Subject.sorted.map { |s| [s.name, s.id] }
       render('new')
     end
   end
@@ -32,7 +33,6 @@ class PagesController < ApplicationController
   def edit
     @page = Page.find(params[:id])
     @pages_count = Page.count
-    @subjects_lookup = Subject.sorted.map { |s| [s.name, s.id] }
   end
 
   def update
@@ -42,7 +42,6 @@ class PagesController < ApplicationController
       redirect_to(page_path(@page))
     else
       @pages_count = Page.count
-      @subjects_lookup = Subject.sorted.map { |s| [s.name, s.id] }
       render('edit')
     end
   end
@@ -69,5 +68,20 @@ class PagesController < ApplicationController
       :position,
       :permalink,
       :visible)
+  end
+
+  ###
+  private
+
+  def define_subjects_lookup
+      @subjects_lookup = Subject.sorted.map { |s| [s.name, s.id] }
+  end
+
+#For Action 'new' and 'create', we need @pages_count = Page.count + 1 ->(for new page)
+  def set_page_count
+    @pages_count = Page.count
+    if params[:action] == 'new' || params[:action] == 'create'
+      @pages_count += 1
+    end
   end
 end
