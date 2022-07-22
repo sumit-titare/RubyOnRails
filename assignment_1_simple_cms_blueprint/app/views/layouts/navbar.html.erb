@@ -13,6 +13,7 @@
     <li><%= link_to("Subjects", subjects_path) %></li>
     <li><%= link_to("Pages", pages_path) %></li>
     <li><%= link_to("Sections", sections_path) %></li>
+    <li><%= link_to("Admin", admin_users_path) %></li>
     <% if(session[:user_id]) %>
       <li><%= link_to("Log out", access_logout_path) %></li>
     <% else %>
@@ -25,7 +26,7 @@
   <div class="flash-container">
     <%= flash[:message] if !flash[:message].blank? %>
   </div>
-  <div class="welcom-user">
+  <div class="welcome-user">
   <% if(session[:user_id]) %>
       <span><%="Hey, #{session[:username]}!!" %></span>
   <% end %>

@@ -1,0 +1,8 @@
+<h1>Edit: <%= @admin_user.username %></h1>
+
+<%= form_for(@admin_user) do |f| %>
+<%= render(partial:'form', locals: { f: f } ) %>
+<div class="form-buttons">
+  <%= f.submit("Update") %>
+</div>
+<% end %>
