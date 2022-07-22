@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  ul {
    list-style-type: none;
    margin: 0;
@@ -56,13 +57,23 @@
 }
 
 body {
+  color: white;
   height: 1000px; /* You must set a specified height */
   width: 100%;
   background-image: url(background.jpg);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  /* text-align: center; */
 }
+
+a{
+  color: white;
+}
+
+/* a:visited {
+  color: #4DD637;
+} */
 
 .login-form {
     margin: auto;

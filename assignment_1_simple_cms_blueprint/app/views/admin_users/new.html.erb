@@ -1,0 +1,12 @@
+<h1> Create new AdminUser</h1>
+
+<%= form_for(@admin_user) do |f| %>
+<%= render(partial:'form', locals: { f: f } ) %>
+<div class="form-buttons">
+  <%= f.submit("Create") %>
+</div>
+<% end %>
+<br/>
+<div class="link">
+  <%= link_to("Back to AdminUsers",admin_users_path) %>
+</div>
