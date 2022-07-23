@@ -60,7 +60,7 @@ body {
   color: white;
   height: 1000px; /* You must set a specified height */
   width: 100%;
-  background-image: url(background.jpg);
+  background-image: url(background-1.jpg);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -77,8 +77,15 @@ a{
 
 .login-form {
     margin: auto;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     background-color: #51E1ED;
-    border-radius: 20%;
+    border-radius: 10%;
+}
+.access-menu {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+  background-color: #51E1ED;
+  border-radius: 10%;
 }
