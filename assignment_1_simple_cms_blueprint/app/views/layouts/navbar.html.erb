@@ -25,9 +25,12 @@
   <!-- NAV BAR: -->
 
   <br/>
+  <% if !flash[:message].blank? %>
   <div class="flash-container">
-    <%= flash[:message] if !flash[:message].blank? %>
+    <%= flash[:message] %>
   </div>
+  <% end %>
+  <br/>
   <div class="welcome-user">
   <% if(session[:user_id]) %>
       <span><%="Hey, #{session[:username]}!!" %></span>
@@ -36,6 +39,8 @@
    <!-- before yield -->
  <%= yield %>
   <!-- after yield %> -->
-
+  <footer>
+    <p>Author: Sumit Titare &copy;</p>
+  </footer>
 </body>
 </html>
