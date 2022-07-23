@@ -10,7 +10,7 @@
   - All access of CMS.
   - Can add, update, delete : Subjects, Pages and Sections.
   
-### 3. Model relations (#PR):
+### 3. Model relations -> [#PR:5](https://github.com/sumit-titare/RubyOnRails/pull/5/files):
   - subject:
       - has_many -> pages
   - pages:
