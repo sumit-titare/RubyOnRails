@@ -15,6 +15,7 @@
       - has_many -> pages
   - pages:
       - belongs_to :subject
+
       - has_many -> sections
       - has_and_belongs_to_many -> admin_users (MANY to MANY- Simple)
   - admin_user: 
@@ -28,6 +29,6 @@
       - belongs_to :admin_user
       - belongs_to :section
   
+  ![finalcms](https://user-images.githubusercontent.com/104588236/180609868-ec32c74d-241c-4761-9f57-a8d4810c4994.gif)
   
-  
-  ![ror-640px](https://user-images.githubusercontent.com/104588236/180609043-db4a4770-63ce-426e-ab46-68eed7801c8f.gif)
+ 
