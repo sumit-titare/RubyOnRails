@@ -1,7 +1,7 @@
 class AdminUsersController < ApplicationController
 
   layout 'navbar'
-  before_action :confirm_logged_in
+  before_action :confirm_logged_in, except:[:new, :create]
 
   def index
     @admin_users = AdminUser.sorted
@@ -15,7 +15,8 @@ class AdminUsersController < ApplicationController
     @admin_user = AdminUser.new(admin_params)
     if @admin_user.save
       flash[:message] = "User created succesfully!!"
-      redirect_to(admin_users_path)
+      redirect_to(admin_users_path) if session[:user_id]
+      redirect_to(root_path)
     else
       render('new')
     end

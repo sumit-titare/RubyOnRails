@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
+
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'
   # get 'subjects/edit'
   # get 'subjects/delete'
 
-  root 'subjects#index'
+  root 'public#about_us'
 
+  get 'public/contact_us'
   get 'access/menu'
   get 'access/login'
   get 'access/logout'
