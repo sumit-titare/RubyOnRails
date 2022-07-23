@@ -1,6 +1,6 @@
 <h1>Edit Page</h1>
 
-<%= form_for(@page) do |f| %>
+<%= form_for(@page, url: page_path(@page, subject_id: @subject.id)) do |f| %>
 <%= render(partial:'form', locals: {f: f}) %>
 <div class="form-buttons">
   <%= f.submit("Update Page") %>
@@ -9,5 +9,5 @@
 
 <div class="action index">
   <br/>
-<%= link_to("Back to pages", pages_path) %>
+<%= link_to("Back to pages", pages_path(subject_id: @subject.id)) %>
 </div>

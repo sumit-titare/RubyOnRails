@@ -14,9 +14,11 @@
     <td><%=subject.name %></td>
     <td><%=subject.position %></td>
     <td><%=subject.visible ? "Yes" : "No"  %></td>
-    <td><%= link_to('Show', subject_path(subject)) %></td> <!-- By default, RAILS send id even if we provide Object -->
-    <td><%= link_to('Edit', edit_subject_path(subject)) %></td>
-    <td><%= link_to('Delete', delete_subject_path(subject)) %></td>
+    <td>
+      <%= link_to('View Pages', pages_path(subject_id: subject.id)) %>
+      <%= link_to('Show', subject_path(subject)) %> <!-- By default, RAILS send id even if we provide Object -->
+      <%= link_to('Edit', edit_subject_path(subject)) %>
+      <%= link_to('Delete', delete_subject_path(subject)) %></td>
   </tr>
     <% end %>
 </table>

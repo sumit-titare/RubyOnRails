@@ -15,19 +15,25 @@
   <% @sections.each do |section| %>
   <tr>
     <td><%=section.id %></td>
-    <td><%= link_to(section.page_id, page_path(section.page_id)) %></td>
+    <td><%= link_to(section.page_id, page_path(section.page_id, subject_id:@page.subject_id)) %></td>
     <td><%=section.name %></td>
     <td><%=section.position %></td>
     <td><%=section.visible ? "Yes" : "No"  %></td>
     <td><%=section.content_type %></td>
     <td><%=section.content %></td>
-    <td><%= link_to('Show', section_path(section)) %></td>
-    <td><%= link_to('Edit', edit_section_path(section)) %></td>
-    <td><%= link_to('Delete', delete_section_path(section)) %></td>
+    <td>
+      <%= link_to('Show', section_path(section, page_id: @page.id)) %>
+      <%= link_to('Edit', edit_section_path(section,page_id: @page.id)) %>
+      <%= link_to('Delete', delete_section_path(section, page_id: @page.id)) %>
+    </td>
   </tr>
     <% end %>
 </table>
 <br/>
 <div class="action new">
-  <%= link_to("Create New Section",new_section_path) %>
+  <%= link_to("Create New Section",new_section_path(page_id: @page.id)) %>
+</div>
+<br/>
+<div class="action list">
+  <%= link_to("Back to Pages",pages_path( subject_id: @page.subject_id)) %>
 </div>

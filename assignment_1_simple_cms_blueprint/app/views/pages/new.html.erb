@@ -1,6 +1,6 @@
 <h1>Create new Page</h1>
 
-<%= form_for(@page) do |f| %>
+<%= form_for(@page, url: pages_path(subject_id: @subject.id)) do |f| %>
 
 <!-- Adding a partial here: Also in partial we have a variable "f" , that value we need to pass on from here in "locals" hash  -->
 <%= render(partial:'form', locals: { f: f } ) %>
@@ -12,5 +12,5 @@
 
 <div class="action index">
   <br/>
-<%= link_to("Back to pages", pages_path) %>
+<%= link_to("Back to pages", pages_path(subject_id: @subject.id))%>
 </div>

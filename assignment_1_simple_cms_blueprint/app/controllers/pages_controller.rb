@@ -2,12 +2,13 @@ class PagesController < ApplicationController
 
   layout 'navbar'
 
+  before_action :find_subject
   before_action :define_subjects_lookup, only: [:new, :create, :edit, :update ]
   before_action :set_page_count, only: [:new, :create, :edit, :update]
   before_action :confirm_logged_in
 
   def index
-    @pages = Page.sorted
+    @pages = @subject.pages.sorted
   end
 
   def show
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new()
+    @page = Page.new(subject_id: @subject.id)
     @pages_count = Page.count + 1
   end
 
@@ -23,7 +24,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     if @page.save
       flash[:message] = "Page created successfully!!"
-      redirect_to(pages_path)
+      redirect_to(pages_path(subject_id: @subject.id))
     else
       # if it fails ,then template 'new' should have access to @pages_count, @subjects_lookup
       @pages_count = Page.count + 1
@@ -40,7 +41,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.update(page_params)
       flash[:message] = "Page updated successfully!!"
-      redirect_to(page_path(@page))
+      redirect_to(page_path(@page, subject_id: @subject.id))
     else
       @pages_count = Page.count
       render('edit')
@@ -56,7 +57,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.destroy
       flash[:message] = "Page deleted successfully!!"
-      redirect_to(pages_path)
+      redirect_to(pages_path(subject_id: @subject.id))
     else
       render('delete')
     end
@@ -84,5 +85,9 @@ class PagesController < ApplicationController
     if params[:action] == 'new' || params[:action] == 'create'
       @pages_count += 1
     end
+  end
+
+  def find_subject
+    @subject = Subject.find(params[:subject_id])
   end
 end
