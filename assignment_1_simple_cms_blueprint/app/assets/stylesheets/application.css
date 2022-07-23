@@ -93,3 +93,31 @@ p {
   font-size: large;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
+/* For table: */
+table   { display: table; border-collapse: collapse;}
+th { display: table-cell; border: 1px solid #51E1ED;  padding: 15px;}
+tr { display: table-row; border: 1px solid #51E1ED; padding: 15px;}
+td { display: table-cell; border: 1px solid #51E1ED; padding: 15px;}
+
+.flash-container {
+  background-color: #00D84A;
+  width: auto;
+  height: 20px;
+  text-align: center;
+}
+
+.access-menu {
+  text-align: center;
+}
+
+.main-menu{
+ text-align: left;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #207398;
+  color: white;
+  margin-top:250px;
+}
