@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <th>Page Id</th>
-    <td><%= link_to(@section.page_id,page_path(@section.page_id)) %></td>
+    <td><%= link_to(@section.page_id,page_path(@section.page_id, subject_id: @page.subject_id)) %></td>
   </tr>
   <tr>
     <th>Position</th>
@@ -29,5 +29,5 @@
 
 <div class="action index">
   <br/>
-<%= link_to("Back to sections", sections_path) %>
+<%= link_to("Back to sections", sections_path(page_id: @page.id)) %>
 </div>

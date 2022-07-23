@@ -1,6 +1,6 @@
 <div class="delete-confirmation">
   <h2>Delete confirmation:</h2>
-  <%= form_for(@section, method:"delete") do |f|%>
+  <%= form_for(@section, url: section_path(@section, page_id: @page.id), method:"delete") do |f|%>
   <p> Are you sure you want to delete? </p>
   <div> <%= f.submit("Delete Section") %> </div>
   <% end %>
