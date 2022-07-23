@@ -9,6 +9,7 @@ class AccessController < ApplicationController
   end
 
   def login
+    redirect_to(access_menu_path) if session[:user_id]
     #login form
   end
 
