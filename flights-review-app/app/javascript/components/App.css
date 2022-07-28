@@ -1,0 +1,57 @@
+.airline-overview {
+    padding: 50px 100px 50px 0px;
+    font-size: 30px;
+
+}
+
+.airline-overview img {
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 100%;
+    margin-bottom: -8px;
+}
+
+.total-reviews-count {
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.airline-score {
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.average-score {
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.airline-details {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+}
+
+.column {
+    background: #fff;
+    max-width: 50%;
+    width: 50%;
+    float: left;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow: scroll;
+}
+
+.column::-webkit-scrollbar {
+    display: none;
+}
+
+.column:last-child {
+    background: black;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
