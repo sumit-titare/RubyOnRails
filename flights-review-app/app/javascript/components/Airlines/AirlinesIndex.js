@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Airline from "./Airline";
+import { AIRLINES_URL } from "../../endpoints/Endpoints";
 
-const Airlines = () => {
+const AirlinesIndex = () => {
   const [airlines, setAirlines] = useState([]);
 
   // const fetchAirlines = async () => {
@@ -12,7 +13,7 @@ const Airlines = () => {
   // };
 
   useEffect(() => {
-    Axios.get("/api/v1/airlines.json")
+    Axios.get(`${AIRLINES_URL}`)
       .then((resp) => {
         setAirlines(resp.data.data);
         console.log("airlines", airlines);
@@ -30,4 +31,4 @@ const Airlines = () => {
   );
 };
 
-export default Airlines;
+export default AirlinesIndex;
