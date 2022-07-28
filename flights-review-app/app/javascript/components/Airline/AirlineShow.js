@@ -26,10 +26,7 @@ const AirlineShow = () => {
     <div className="airline-details">
       <div className="column">
         {console.log("review", reviews)}
-        <Header
-          attributes={airline.data?.attributes}
-          totalReviews={reviews.length}
-        />
+        <Header attributes={airline.data?.attributes} reviews={reviews} />
         <Reviews reviews={reviews} />
       </div>
       <div className="column">
