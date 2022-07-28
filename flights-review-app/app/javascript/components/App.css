@@ -55,3 +55,84 @@
     background: black;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
+.airlines-index {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.airlines-index-header {
+    padding: 100px 100px 10px 100px;
+}
+
+.airlines-index-header h1 {
+    font-size: 42px;
+}
+
+.sub-header {
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.grid>div {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.airline-details-card {
+    border: 1px solid #efefef;
+    background: #fff;
+}
+
+.airline-logo {
+    height: 50px;
+}
+
+.airline-logo img {
+    height: 50px;
+    width: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40%;
+}
+
+.airline-name {
+    padding: 20px 0 10px 0;
+}
+
+.airline-link {
+    margin: 30px 0 20px 0;
+    height: 50px;
+}
+
+.airline-link a {
+    color: #fff;
+    background-color: #46B2E0;
+    border-radius: 4px;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #03203C;
+    text-align: center;
+    line-height: 20px;
+    min-height: 40px;
+    margin: 7px;
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+    transition: ease-in-out 0.1s;
+}
+
+.airline-link a:hover {
+    border-color: #03203C;
+    background: #03203C;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Airline from "./Airline";
 import { AIRLINES_URL } from "../../endpoints/Endpoints";
+import Header from "./Header";
 
 const AirlinesIndex = () => {
   const [airlines, setAirlines] = useState([]);
@@ -24,9 +25,12 @@ const AirlinesIndex = () => {
   // const list = airlines.map((item) => console.log(item));
   return (
     <div className="airlines-index">
-      {airlines.map((airline) => (
-        <Airline key={airline.id} airline={airline.attributes} />
-      ))}
+      <Header />
+      <div className="grid">
+        {airlines.map((airline) => (
+          <Airline key={airline.id} airline={airline.attributes} />
+        ))}
+      </div>
     </div>
   );
 };
