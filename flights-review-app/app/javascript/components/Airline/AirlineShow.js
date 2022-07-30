@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 import Reviews from "../Reviews/Reviews";
 import ReviewForm from "../Reviews/ReviewForm";
+import { REVIEWS_URL } from "../../endpoints/Endpoints";
 
 const AirlineShow = () => {
   const [airline, setAirline] = useState({});
   const [reviews, setReviews] = useState([]);
+
   const { slug } = useParams();
 
   useEffect(() => {
@@ -22,6 +24,18 @@ const AirlineShow = () => {
       });
   }, []);
 
+  //Handle submit of Review:
+  const airline_id = parseInt(airline.data?.id);
+  const addReview = (review) => {
+    //handle submit
+    Axios.post(`${REVIEWS_URL}`, { ...review, airline_id })
+      .then((response) => {
+        setReviews([...reviews, response.data?.data]);
+      })
+      .catch((response) => console.log(response.data));
+  };
+  //handle onChange in ReviewForm
+
   return (
     <div className="airline-details">
       <div className="column">
@@ -30,10 +44,13 @@ const AirlineShow = () => {
         <Reviews reviews={reviews} />
       </div>
       <div className="column">
-        <ReviewForm />
+        <ReviewForm
+          addReview={addReview}
+          airline_name={airline.data?.attributes.name}
+        />
       </div>
     </div>
   );
-};
+};;;;
 
 export default AirlineShow;

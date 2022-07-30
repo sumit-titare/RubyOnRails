@@ -9,7 +9,8 @@ const Header = ({ attributes, reviews }) => {
       return 0;
     }
     reviews.map((r) => (totalScore += r.attributes?.score));
-    return (average = totalScore / reviews.length);
+    average = totalScore / reviews.length;
+    return average.toFixed(1);
   };
 
   return (
