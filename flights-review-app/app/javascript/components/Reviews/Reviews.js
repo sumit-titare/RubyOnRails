@@ -7,7 +7,10 @@ const Reviews = ({ reviews }) => {
       <h2>User reviews: </h2>
       {reviews.length > 0 &&
         reviews.map((review) => (
-          <Review key={review.id} reviewAttributes={review.attributes} />
+          <Review
+            key={`review-${review.id}`}
+            reviewAttributes={review.attributes}
+          />
         ))}
     </div>
   );
