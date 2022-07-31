@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Review from "./Review";
 
-const ratingOptionValues = [1, 2, 3, 4, 5];
+const ratingOptionValues = [5, 4, 3, 2, 1];
 
 const ReviewForm = ({ addReview, airline_name }) => {
   const [title, setTitle] = useState("");
@@ -23,18 +23,23 @@ const ReviewForm = ({ addReview, airline_name }) => {
     setScore(0);
   };
 
-  const ratingOptions = ratingOptionValues.map((score, index) => {
+  const ratingOptions = ratingOptionValues.map((rating, index) => {
     return (
       <Fragment key={index}>
         <input
           type="radio"
           name="rating"
-          id={`rating-${score}`}
-          key={`rating-${score}`}
-          value={score}
+          id={`rating-${rating}`}
+          key={`rating-${rating}`}
+          value={rating}
           onChange={(e) => setScore(e.target.value)}
+          checked={score === rating}
         />
-        <label key={`rating-label-${score}`} htmlFor={score}></label>
+        <label
+          key={`rating-label-${rating}`}
+          htmlFor={rating}
+          onClick={() => setScore(rating)}
+        ></label>
       </Fragment>
     );
   });
