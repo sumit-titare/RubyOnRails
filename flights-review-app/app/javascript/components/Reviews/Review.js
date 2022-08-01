@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../Rating/Rating";
 
 const Review = ({ reviewAttributes }) => {
   return (
@@ -8,7 +9,7 @@ const Review = ({ reviewAttributes }) => {
         Review: {reviewAttributes?.description}
       </div>
       <div className="airline-score">
-        Rating: {reviewAttributes?.score} out of 5:
+        <Rating score={reviewAttributes?.score} />
       </div>
       <div className=""></div>
     </div>
