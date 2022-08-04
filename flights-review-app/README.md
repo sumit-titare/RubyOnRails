@@ -3,8 +3,6 @@
  User can also add Review for any Airline.
  
 ## Models:
-1. Airline:
-  - has_many :reviews
-2. Review:
-  - belongs_to :airline
+1. Airline: - has_many :reviews
+2. Review:  - belongs_to :airline
   
