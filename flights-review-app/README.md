@@ -5,4 +5,8 @@
 ## Models:
 1. Airline: - has_many :reviews
 2. Review:  - belongs_to :airline
+
+
+## UI:
+
   
